@@ -4,7 +4,10 @@
 }
 
 
-.test
-{background-color: #e0f;
+.bigFont
+{font-size: 30px;
    
+}
+.smallFont{
+    font-size: 12px;
 }
