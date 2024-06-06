@@ -7,6 +7,8 @@ function FontSizeToBig()
 {
 parag.classList.add("bigFont");
 header.classList.add("bigFont");
+parag.classList.remove("smallFont");
+header.classList.remove("smallFont");
 }
 
 
@@ -14,6 +16,9 @@ function FontSizeToSmall()
 {
 parag.classList.add("smallFont");
 header.classList.add("smallFont");
+header.classList.remove("bigFont");
+parag.classList.remove("bigFont");
+
 }
 bigBtn.onclick=FontSizeToBig;
 smallBtn.onclick=FontSizeToSmall;
