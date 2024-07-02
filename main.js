@@ -1,25 +1,17 @@
-var parag=document.querySelector("p");
-var header=document.querySelector("h2");
-var bigBtn=document.querySelector(".bigger");
-var smallBtn=document.querySelector(".smaller");
-
-function FontSizeToBig()
+async function getRecepy(){
+    const response =await fetch(`https://forkify-api.herokuapp.com/api/search?q=pizza`);
+const data=await response.json();  
+const recepy=data.recipes;
+const result=recepy.map(function(ele)
 {
-parag.classList.add("bigFont");
-header.classList.add("bigFont");
-parag.classList.remove("smallFont");
-header.classList.remove("smallFont");
+    return`
+    <div class='recipes'>
+    <h3>${ele.title}<h3>
+    <img src='${ele.image_url}'>
+    </div>
+
+    `;
+}).join('');
+document.querySelector(".data").innerHTML=result;
 }
-
-
-function FontSizeToSmall()
-{
-parag.classList.add("smallFont");
-header.classList.add("smallFont");
-header.classList.remove("bigFont");
-parag.classList.remove("bigFont");
-
-}
-bigBtn.onclick=FontSizeToBig;
-smallBtn.onclick=FontSizeToSmall;
-
+getRecepy();
